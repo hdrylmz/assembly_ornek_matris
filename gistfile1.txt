@@ -1,0 +1,40 @@
+		#include		"aduc841.h"	
+		org 0000h	
+		basla:	
+		
+;**********************************************
+		;MATRIS_2
+;**********************************************		
+		mov		r0,#21h	
+		etiket_1:
+		mov		a,#3d			;a=0 oldugunda buraya dönüp a yi tekrar 3 yapar	
+		etiket_2:	
+		jz		etiket_1		;a=0 ise r0 adresindeki etiket_1 e zipla
+		mov		@r0,a			;r0 adresindeki veriye a yi ata
+		dec		a				;a yi azalt
+		inc		r0				;r0 i azalt		
+		cjne	r0,#2ah,etiket_2
+;*********************************************		
+;		MATRIS_1		
+;*********************************************		
+		mov		r0,#19h	
+		etiket_3:
+		mov		a,#3d			;a=0 oldugunda buraya dönüp a yi tekrar 3 yapar	
+		etiket_4:	
+		jz		etiket_3		;a=0 ise etiket_3 e zipla
+		mov		@r0,a			;r0 adresindeki veriye a yi ata
+		dec		a				;a yi azalt
+		dec		r0				;r0 i azalt		
+		cjne	r0,#10h,etiket_4
+;********************************************
+;		SONUÇ_MATRISI
+;********************************************
+		;mov		r1,#
+		etiket_5:
+		mov		a,#3d
+		mov		r0,#1d
+	
+		
+		
+		
+		sjmp basla
